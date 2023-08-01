@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+body {
+  background-color:hsla(0,0%,0%,1);
+  background-image:
+  radial-gradient(at 9% 12%, hsla(233,25%,39%,0.74) 0px, transparent 50%),
+  radial-gradient(at 14% 95%, hsla(178,43%,26%,0.9) 0px, transparent 50%),
+  radial-gradient(at 96% 7%, hsla(210,32%,32%,0.85) 0px, transparent 50%),
+  radial-gradient(at 83% 98%, hsla(202,100%,27%,0.75) 0px, transparent 50%);
+  min-height: 90vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.homeDiv {
+    width: 80vmin;
+    margin: 0 auto;
+    font-family: 'Roboto Slab', serif;
+
+}
+
+/* .homeDiv > h1 {
+  text-align: center;
+} */
+ 

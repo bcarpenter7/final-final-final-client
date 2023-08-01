@@ -1,0 +1,111 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+
+
+.homeDiv {
+    width: 80vmin;
+    margin: 0 auto;
+    background-color: rgba(175, 219, 249, 0.316);
+    border-radius: 10px;
+    margin-bottom: 60px;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 40px;
+    margin-left: 35%;
+    font-family: 'Roboto Slab', serif;
+}
+.second{
+    font-size: 25px;
+    margin-left: 28%;
+    font-family: 'Roboto Slab', serif;
+}
+            /* buttons  */
+.btt{
+    display: flex;
+    margin-left: 18%;
+    padding-bottom: 5px;
+    font-family: 'Roboto Slab', serif;
+}
+button {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    margin-right: 15px;
+}
+  
+button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+  
+button:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
+        /* articles */
+
+.newsSection {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(175, 219, 249, 0.316);;
+  }
+  
+  .slider {
+    display: flex;
+  }
+  .newsItem {
+    color: #ffffff;
+    flex: 0 0 200px;
+    min-width: auto;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #1a3c8560;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    white-space: nowrap;
+    font-family: 'Roboto Slab', serif;
+    cursor: pointer;
+  }
+  .newsItem{
+    transition: .5s, color .10s;
+        -webkit-transition: .5s, color .10s;
+        -moz-transition: .5s, color .10s;
+}
+.newsItem:hover{
+    transform: translatey(-20px);
+        -webkit-transform: translatey(-20px);
+        -moz-transform: translatey(-20px);
+}
+  .trending{
+    font-family: 'Roboto Slab', serif;
+    font-size: 50px;
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    text-align: center;
+  }
+  
+  @keyframes slide {
+    0% {transform: translateX(0);}
+    50% {transform: translateX(20px);}
+    100% {transform: translateX(0);}
+  }
+ .footer{
+    color: #ffffff;
+    margin-top: 14%;
+    text-align: center;
+    cursor: pointer;
+ }
