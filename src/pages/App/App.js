@@ -24,7 +24,7 @@ export default function App() {
 
   async function getPosts(){
     try {
-      const res = await axios.get('http://localhost:3000/api/posts')
+      const res = await axios.get('http://techblog.fly.dev/api/posts')
       setPosts(res.data)
       console.log(res.data)
     } catch (err){
@@ -34,7 +34,7 @@ export default function App() {
 
 
   const handleCreate = (createdPost) => {
-    axios.post('http://localhost:3000/api/posts', createdPost)
+    axios.post('http://techblog.fly.dev/api/posts', createdPost)
       .then((response) => {
         setPosts([...posts, response.data])
       })
@@ -42,7 +42,7 @@ export default function App() {
 
 
   const handleEdit = (editedPost) => {
-    axios.put('http://localhost:3000/api/posts/' + editedPost._id, editedPost)
+    axios.put('http://techblog.fly.dev/api/posts/' + editedPost._id, editedPost)
       .then((response) => {
         let newPost = posts.map((post) => {
           return post._id !== editedPost._id ? post : editedPost
@@ -52,7 +52,7 @@ export default function App() {
   }
 
   const handleDelete = (deletedPost) => {
-    axios.delete('http://localhost:3000/api/posts/' + deletedPost)
+    axios.delete('http://techblog.fly.dev/api/posts/' + deletedPost)
       .then((response) => {
         let newPosts = posts.filter((post) => {
           return post._id !== deletedPost
