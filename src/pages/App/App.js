@@ -75,7 +75,7 @@ export default function App() {
                 <Route 
                     path="/" 
                     element={
-                      <HomePage setPage={setPage}/>
+                      <HomePage setPage={setPage} posts={posts}/>
                     }>
 
                 </Route>

@@ -2,23 +2,18 @@ import { useState } from 'react';
 import './HomePage.css';
 import '../../index.css';
 
-export default function HomePage({ setPage }) {
+export default function HomePage({ setPage, posts }) {
   const [nav, setNav] = useState({});
 
   function handleClick(e) {
     setPage(e.target.name);
   }
 
+
+
   // Dummy news data
-  const newsData = [
-    "Alien on Earth?",
-    "Best tips to lose weigth",
-    "Are you paying to much for insurance?",
-    "Is Alchool bad for you?",
-    "Is pizza actually healthy?",
-    "Does reading makes you smarter?",
-    "Is your phone listening to you?",
-  ];
+  const newsData = posts.map((e, idx) => e.title).slice(0, 7)
+
 
   return (
     <>
@@ -37,7 +32,7 @@ export default function HomePage({ setPage }) {
   
       {/* News Section */}
       <div className="newsSection">
-        <h2 className="trending">!Latest News here just HERE!</h2>
+        <h2 className="trending">View Our Trending Articles</h2>
         <div className="slider">
           {newsData.map((news, index) => (
             <div key={index} className="newsItem">
