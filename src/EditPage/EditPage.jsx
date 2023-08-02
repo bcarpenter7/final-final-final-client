@@ -1,84 +1,82 @@
-import { useState } from 'react'
+import { useState } from "react";
 
+export default function EditPost({
+  article,
+  handleEdit,
+  setPage,
+  setEditMode,
+}) {
+  const [tempPost, setTempPost] = useState({
+    author: article.author,
+    title: article.title,
+    content: article.content,
+    img: article.img,
+    likes: article.likes,
+    _id: article._id,
+    createdAt: article.createdAt,
+    updatedAt: article.updatedAt,
+  });
 
-export default function EditPost({ article, handleEdit, setPage, setEditMode}){
-    
-    const [tempPost, setTempPost] = useState({
-        author: article.author,
-        title: article.title,
-        content: article.content,
-        img: article.img,
-        likes: article.likes,
-        _id: article._id,
-        createdAt : article.createdAt,
-        updatedAt : article.updatedAt
-    })
-   
-    function handleChange(e){
-        setTempPost({...tempPost, [e.target.name]: e.target.value})
-    }
+  function handleChange(e) {
+    setTempPost({ ...tempPost, [e.target.name]: e.target.value });
+  }
 
-    function handleSubmit(e){
-        e.preventDefault()
-        console.log(tempPost)
-        setEditMode(false)
-        setPage("index")
-        handleEdit(tempPost)
-        
-    }
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(tempPost);
+    setEditMode(false);
+    setPage("index");
+    handleEdit(tempPost);
+  }
 
-    return(
-        <>
-            <div className="container">
-            <h1 className="articleHeader">Add Article</h1>
-            <form className="form" onSubmit={handleSubmit}>
-              
-                <div>
-                    <label>Enter Author</label>
-                    <input 
-                    value={tempPost.author} 
-                    name="author"
-                    onChange={handleChange}
-                    />
-                </div>
-                
-                <div>
-                    <label>Enter Title</label>
-                    <input 
-                    value={tempPost.title} 
-                    name="title"
-                    onChange={e => handleChange(e)}
-                    />
-                </div>
-               
-                <div>
-                    <label>Enter Content</label>
-                    <textarea
-                    value={tempPost.content} 
-                    className="textArea"
-                    name="content"
-                    onChange={e => handleChange(e)}
-                    />
+  return (
+    <>
+      <div className="container">
+        <h1 className="articleHeader">Add Article</h1>
+        <form className="form" onSubmit={handleSubmit}>
+          <div>
+            <label>Enter Author</label>
+            <input
+              className="inputStyle"
+              value={tempPost.author}
+              name="author"
+              onChange={handleChange}
+            />
+          </div>
 
-                </div>
-               
-                <div>
-                    <label>Enter Img Url</label>
-                    <input 
-                    value={tempPost.img} 
-                    name="img"
-                    onChange={e => handleChange(e)}
-                    />
+          <div>
+            <label>Enter Title</label>
+            <input
+              className="inputStyle"
+              value={tempPost.title}
+              name="title"
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
 
-                </div>
-               
-                <button type="submit">Enter</button>
-            </form>
+          <div>
+            <label>Enter Content</label>
+            <textarea
+              value={tempPost.content}
+              className="textArea"
+              name="content"
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
 
-            </div>
-            
-        </>
+          <div>
+            <label>Enter Img Url</label>
+            <input
+              className="inputStyle"
+              value={tempPost.img}
+              name="img"
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
 
-
-    )
+          <button type="submit">Enter</button>
+        </form>
+      </div>
+    </>
+  );
 }
