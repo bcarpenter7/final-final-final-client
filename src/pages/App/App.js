@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+
 import axios from 'axios'
 import Post from '../../components/Post/Post'
 import PostForm from '../../components/PostForm/PostForm'
-import { Routes, Route } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage'
-import PostDetail from '../../components/PostDetail/PostDetail'
-
+import './App.css';
 
 
 export default function App() {
@@ -14,18 +14,12 @@ export default function App() {
   const [currentArticle, setCurrentArticle] = useState(null)
   const [page, setPage] = useState(null)
 
-  // const getPosts = () => {
-  //   axios.get('http://localhost:3000/posts')
-  //     .then((response) => setPosts(response.data), (err) => console.log(err))
-  //     .catch((error) => console.log(error))
-  // }
-
-  async function getPosts(){
+  async function getPosts() {
     try {
       const res = await axios.get('https://techblog.fly.dev/api/posts')
       setPosts(res.data)
       console.log(res.data)
-    } catch (err){
+    } catch (err) {
       console.error(err)
     }
   }
@@ -65,96 +59,72 @@ export default function App() {
   }, [])
 
 
- 
-      if(page === null || page === "null"){
-        return (
-          <>
-          <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
-         
-              <Routes>
-                <Route 
-                    path="/" 
-                    element={
-                      <HomePage setPage={setPage} posts={posts} setCurrentArticle={setCurrentArticle}/>
-                    }>
 
-                </Route>
-              </Routes>
-          </>
-        )
-      }
+  if (page === null || page === 'null') {
+    return (
+      <>
+        <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle} />
 
-      if(page === "index" || page === "indexUpdate"){
-        return (
-            <>
-              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
-              {/* <h1>All Posts</h1> */}
-              <Routes>
-                <Route 
-                    path="/" 
-                    element={
-                      <Post 
-                      posts={posts} 
-                      currentArticle={currentArticle} 
-                      setCurrentArticle={setCurrentArticle} 
-                      handleDelete={handleDelete}
-                      handleEdit={handleEdit}
-                      setPage={setPage}
-                      />
-                    }>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage setPage={setPage} posts={posts} setCurrentArticle={setCurrentArticle} />
+            } />
+        </Routes>
+      </>
+    )
+  }
 
-                </Route>
-              </Routes>
-            </>
+  if (page === 'index' || page === 'indexUpdate') {
+    return (
+      <>
+        <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle} />
+        {/* <h1>All Posts</h1> */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Post
+                posts={posts}
+                currentArticle={currentArticle}
+                setCurrentArticle={setCurrentArticle}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                setPage={setPage}
+              />
+            } />
+        </Routes>
+      </>
 
-        )
-      }
+    )
+  }
 
-      if(page === "postform"){
-        return (
-            <>
-              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
-              {/* <h1>All Posts</h1> */}
-              <Routes>
-                <Route 
-                    path="/" 
-                    element={
-                      <PostForm handleCreate={handleCreate} setPage={setPage}/>
-                    }>
+  if (page === 'postform') {
+    return (
+      <>
+        <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle} />
+        {/* <h1>All Posts</h1> */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PostForm handleCreate={handleCreate} setPage={setPage} />
+            } />
+        </Routes>
+      </>
 
-                </Route>
-              </Routes>
-            </>
-
-        )
-      }
-
-      // if(page === "detail"){
-      //   return (
-      //       <>
-      //         <NavBar setPage={setPage}/>
-      //         {/* <h1>All Posts</h1> */}
-      //         <Routes>
-      //           <Route 
-      //               path="/" 
-      //               element={
-      //                 <PostDetail id={id}/>
-      //               }>
-
-      //           </Route>
-      //         </Routes>
-      //       </>
-
-      //   )
-      // }
-    
-      
-
-         
-         
+    )
+  }
 
 
-      
-      
+
+
+
+
+
+
+
+
 
 }

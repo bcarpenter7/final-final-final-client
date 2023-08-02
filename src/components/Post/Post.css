@@ -1,11 +1,23 @@
-.title1{
-    text-align: center;
-}
-.img {
-    width: 15vmin;
+.homeDivPost {
+    width: 80vmin;
+    margin: 0 auto;
+    font-family: 'Roboto Slab', serif;
+
+
 }
 
-.blogCard {
+.title1Post {
+    text-align: center;
+    color: white;
+}
+
+.imgPost {
+    width: 25vmin;
+    height: 25vmin;
+    border: 2px solid black;
+}
+
+.blogCardPost {
     width: 90%;
     border-radius: 5px;
     margin: 1vmin auto;
@@ -14,13 +26,17 @@
     display: flex;
     gap: 3vmin;
     align-items: center;
+    background-color: white;
+    color: black;
+
 
 }
 
-.date {
-    font-weight:lighter;
+.datePost {
+    font-weight: lighter;
 }
 
-.previewText {
+
+.previewTextPost {
     font-weight: 300;
 }
