@@ -66,6 +66,7 @@ button:active {
   .slider {
     display: flex;
   }
+  
   .newsItem {
     color: #ffffff;
     flex: 0 0 200px;

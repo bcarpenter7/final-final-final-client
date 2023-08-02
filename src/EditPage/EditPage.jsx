@@ -29,7 +29,7 @@ export default function EditPost({ article, handleEdit, setPage, setEditMode}){
 
     return(
         <>
-            <div className="addDiv">
+            <div className="container">
             <h1 className="articleHeader">Add Article</h1>
             <form className="form" onSubmit={handleSubmit}>
               
