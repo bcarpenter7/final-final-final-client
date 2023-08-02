@@ -2,23 +2,27 @@ import { useState } from 'react';
 import './HomePage.css';
 import '../../index.css';
 
-export default function HomePage({ setPage, posts }) {
+export default function HomePage({ setPage, posts, setCurrentArticle }) {
   const [nav, setNav] = useState({});
 
   function handleClick(e) {
     setPage(e.target.name);
   }
 
-
+  function handleChange(e){
+    console.log(e.target.name)
+    setCurrentArticle(e.target.name)
+    setPage("index")
+}
 
   // Dummy news data
-  const newsData = posts.map((e, idx) => e.title).slice(0, 7)
+  const newsData = posts.map((e, idx) => e).slice(0, 7)
 
 
   return (
     <>
       <div className="homeDiv">
-        <h1 className="title">Home Page</h1>
+        <h1 className="title">Tech Blog</h1>
         <h3 className="second">Welcome to the main page</h3>
         <div className="btt">
           <button name="index" onClick={handleClick}>
@@ -35,19 +39,13 @@ export default function HomePage({ setPage, posts }) {
         <h2 className="trending">View Our Trending Articles</h2>
         <div className="slider">
           {newsData.map((news, index) => (
-            <div key={index} className="newsItem">
-              {news}
-            </div>
+            
+              <button name={news._id} className="newsItem" onClick={handleChange}> {news.title.slice(0, 33)}</button>
+        
           ))}
         </div>
       </div>
   
-      {/* Fake info */}
-      <div>
-        <p className="footer">
-          Help | Contact us | Become a writer | Privacy | Terms | About | Ads
-        </p>
-      </div>
     </>
   );
 }

@@ -24,7 +24,7 @@ export default function PostForm({ handleCreate, setPage }){
 
     return(
         <>
-            <div className="addDiv">
+            <div className="container">
             <h1 className="articleHeader">Add Article</h1>
             <form className="form" onSubmit={handleSubmit}>
                 <div>
