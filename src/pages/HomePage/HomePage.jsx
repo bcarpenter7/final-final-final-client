@@ -12,6 +12,13 @@ export default function HomePage({ setPage, posts, setCurrentArticle }) {
     setPage("index");
   }
 
+
+  function dosomeotherthing(e) {
+    e.stopPropagation();
+   }
+   
+
+
   // Dummy news data
   const newsData = posts.map((e, idx) => e).slice(0, 7);
 
@@ -24,7 +31,7 @@ export default function HomePage({ setPage, posts, setCurrentArticle }) {
           <button name="index" onClick={handleClick}>
             Click here to see all articles
           </button>
-          <button name="postForm" onClick={handleClick}>
+          <button name="postform" onClick={handleClick}>
             Click here to add an article
           </button>
         </div>
@@ -35,8 +42,8 @@ export default function HomePage({ setPage, posts, setCurrentArticle }) {
         <div className="slider">
           {newsData.map((news, index) => (
             <button name={news._id} className="newsItem" onClick={handleChange}>
-              <img className="imageNews" src={news.img} />
-              <p>{news.title.slice(0, 33)}</p>
+              <img className="imageNews" name={news._id} src={news.img} onClick={handleChange} />
+              <p onClick={(e) => dosomeotherthing(e)}>{news.title.slice(0, 33)}</p>
             </button>
           ))}
         </div>
